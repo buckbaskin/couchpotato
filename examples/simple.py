@@ -16,4 +16,3 @@ if __name__ == '__main__':
     print('begin lazy evaluation')
     add_not_c(1, 2, delayed_return(3))
     print('end lazy evaluation')
-
