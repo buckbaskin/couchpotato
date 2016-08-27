@@ -1,3 +1,5 @@
 .hypothesis/
 *.pyc
-
+.pypirc
+MANIFEST
+dist/
