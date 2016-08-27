@@ -1,13 +1,4 @@
 Current issue
 
-```
-def multiply(a, b):
-  return a*b
+See tests. The lazy wrapper is not a NoneType when a None value is passed through.
 
-lazy_multiply = lazify(multiply)
-
-multiply(3, 4) == lazy_multiply(3, 4) returns False
-```
-
-type(multiply(3, 4)) -> int
-type(lazy_multiply(3, 4)) -> couchpotato.decorator.Lazily

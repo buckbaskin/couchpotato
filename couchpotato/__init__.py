@@ -1,3 +1,15 @@
+'''
+The couchpotato module is used to lazily evaluate functions.
+
+The external interface is:
+from couchpotato.decorator import lazy
+
+@lazy
+def your_function():
+   ...
+
+'''
+
 # make sure Lazy is imported, but don't expose it as couchpotato.Lazy
 from couchpotato.very.lazy import Lazy
 del Lazy

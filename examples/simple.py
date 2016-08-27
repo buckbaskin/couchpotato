@@ -1,8 +1,4 @@
-import sys
-if '/home/buck/Github/couchpotato' not in sys.path:
-    sys.path.append('/home/buck/Github/couchpotato')
-
-from couchpotato import lazify
+from couchpotato import lazy
 
 def delayed_return(value):
     import time
@@ -16,7 +12,7 @@ if __name__ == '__main__':
     print('begin standard evaluation')
     add_not_c(1, 2, delayed_return(3))
     print('end standard evaluation')
-    delayed_return = lazify(delayed_return)
+    delayed_return = lazy(delayed_return)
     print('begin lazy evaluation')
     add_not_c(1, 2, delayed_return(3))
     print('end lazy evaluation')

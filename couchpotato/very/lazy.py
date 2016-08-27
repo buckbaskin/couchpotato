@@ -1,6 +1,13 @@
+'''
+Implement the Lazy class for use with the @lazy decorator
+'''
 class Lazy(object):
-    special_names = {'__LazyValue__', '_Lazy__evaluated', '_Lazy__func', '_Lazy__args', '_Lazy__value', '_Lazy__kwargs'}
-    
+    '''
+    the Lazy class for use with the @lazy decorator
+    '''
+    special_names = {'__LazyValue__', '_Lazy__evaluated', '_Lazy__func',
+                     '_Lazy__args', '_Lazy__value', '_Lazy__kwargs'}
+
     def __init__(self, func, args, kwargs):
         # print('as called __init__(%s, %s, %s)' % (func, args, kwargs,))
         self.__args = tuple(args)
@@ -32,7 +39,7 @@ class Lazy(object):
     def __str__(self):
         self.__LazyValue__()
         return str(self.__value)
-    
+
     def __repr__(self):
         self.__LazyValue__()
         return repr(self.__value)
@@ -43,11 +50,10 @@ class Lazy(object):
             return object.__setattr__(self, name, value)
         self.__LazyValue__()
         setattr(self.__value, name, value)
-        
+
     def __getattribute__(self, name):
         # print('__getattribute__(self, %s)' % (name,))
         if name in Lazy.special_names:
             return object.__getattribute__(self, name)
         self.__LazyValue__()
         return getattr(self.__value, name)
-

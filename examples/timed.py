@@ -1,9 +1,8 @@
-import sys
-if '/home/buck/Github/couchpotato' not in sys.path:
-    sys.path.append('/home/buck/Github/couchpotato')
-
+'''
+Example use of lazy evaluation to avoid calculating a function that takes time
+'''
 import datetime
-from couchpotato import lazify
+from couchpotato import lazy
 
 def delayed_return(value):
     import time
@@ -19,10 +18,9 @@ if __name__ == '__main__':
     add_not_c(1, 2, delayed_return(3))
     delta = datetime.datetime.now() - start
     print('end standard evaluation: %s' % delta.total_seconds())
-    delayed_return = lazify(delayed_return)
+    delayed_return = lazy(delayed_return)
     print('lazy evaluation')
     start = datetime.datetime.now()
     add_not_c(1, 2, delayed_return(3))
     delta = datetime.datetime.now() - start
     print('end lazy evaluation: %s' % delta.total_seconds())
-
