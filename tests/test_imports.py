@@ -1,3 +1,6 @@
+'''
+Test that the import structure of the couchpotato exposes the correct items
+'''
 from nose.tools import assert_in, assert_not_in, assert_is_instance, assert_raises
 
 def test_available():
